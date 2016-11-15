@@ -1,0 +1,17 @@
+// Place all the styles related to the Albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+img { 
+	width: 10em;
+	length: 10em;
+}
+
+.body {
+    background-color: red;
+}
+
+.column.centered {
+margin-left: auto;
+margin-right: auto;
+float: none !important; }
+
