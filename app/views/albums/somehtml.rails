@@ -1,0 +1,27 @@
+
+<div class="row">
+<div class="col-md-4">
+<div class="text-center"><%= image_tag "help.jpeg" %></div>
+<h2> <%= @help.title %> </h2>
+<h4><%= @help.artist %>
+<br>
+<%= @help.genre %></h4>
+</div> <!--col-->
+
+<%= link_to album.title, "albums/#{album.id}" %> 
+
+<div class="col-md-4">
+<div class="text-center"><%= image_tag "ready_to_die.jpeg" %> </div>
+<h2> <%= @ready_to_die.title %> </h2>
+<h4><%= @ready_to_die.artist %>
+<br>
+<%= @ready_to_die.genre %></h4>
+</div> <!--col-->
+
+<div class="col-md-4">
+<div class="text-center"><%= image_tag "what_we_all_come_to_need.jpeg" %></div>
+<h2> <%= @what_we_all_come_to_need.title %> </h2>
+<h4><%= @what_we_all_come_to_need.artist %>
+<br>
+<%= @what_we_all_come_to_need.genre %></h4>
+</div> <!--col-->

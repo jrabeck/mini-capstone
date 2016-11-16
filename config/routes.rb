@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 get '/albums', to: "albums#albums"
 
-get '/index', to: "albums#index"
+get 'albums/index', to: "albums#index"
 get '/album/:id', to: "albums#show"
 
 get '/new', to: "albums#new"
@@ -11,5 +11,8 @@ post 'create', to: "albums#create"
 
 get '/album/:id/album', to: "albums#album"
 patch '/update/:id', to: "albums#album"
+
+get "/albums/:id/", to: "albums#show"
+delete "/albums/:id/", to: "albums#destroy"
 
 end

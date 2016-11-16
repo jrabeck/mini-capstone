@@ -34,4 +34,10 @@ class AlbumsController < ApplicationController
     @album.save
   end
 
+  def destroy
+    @album = Album.new(title: params[:title], artist: params[:artist], genre: params[:genre])
+    @album.destroy
+  end
+
+
 end
