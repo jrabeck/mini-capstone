@@ -16,27 +16,33 @@ class AlbumsController < ApplicationController
     @album = Album.find_by(id: params[:id])
   end
 
-  def new_album
+  def new
   end
 
-  def create_album
+  def create
     @album = Album.new(title: params[:title], artist: params[:artist], genre: params[:genre])
     @album.save
+
+    redirect_to "/albums/#{@album.id}"
   end
 
-  def edit_album
+  def edit
     @album = Album.find_by(id: params[:id])
   end
 
-  def update_album
-   @album = Album.find_by(id: params[:id])
-   @album.assign_attributes(title: params[:title], artist: params[:artist], genre: params[:genre])
-    @album.save
+  def update
+   album = Album.find_by(id: params[:id])
+   album.assign_attributes(title: params[:title], artist: params[:artist], genre: params[:genre])
+    album.save
+
+    redirect_to "/albums/#{album.id}"
   end
 
   def destroy
-    @album = Album.new(title: params[:title], artist: params[:artist], genre: params[:genre])
+    @album = Album.find_by(id: params[:id])
     @album.destroy
+    flash[:succes] = "Contact has been destroyed"
+    redirect_to "/index"
   end
 
 
