@@ -22,7 +22,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(title: params[:title], artist: params[:artist], genre: params[:genre])
     @album.save
-
+    flash[:success] = "Album has been created"
     redirect_to "/albums/#{@album.id}"
   end
 
@@ -41,7 +41,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find_by(id: params[:id])
     @album.destroy
-    flash[:succes] = "Contact has been destroyed"
+    flash[:danger] = "Album has been destroyed"
     redirect_to "/index"
   end
 
