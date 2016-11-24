@@ -1,4 +1,8 @@
-  <%= form_tag "/albums", method: :post do %>
+<br> 
+<br> 
+<br> 
+<br> 
+ <%= form_tag "/albums", method: :post do %>
     <div>
     <%= label_tag :title %>
     <%= text_field_tag :title %>
@@ -6,6 +10,12 @@
     <%= text_field_tag :artist %>
     <%= label_tag :genre %>
     <%= text_field_tag :genre %>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+    <%= label_tag :supplier_id %>
+    <%= text_field_tag :supplier_id %>
     <div>
     <%= submit_tag "Submit" %>
     </div>

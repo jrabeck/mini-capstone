@@ -1,22 +1,53 @@
 
 
 
-<div class = "body">
+<body>
 <br>
 <br>
+<br>
+<br>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Search for...">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+<br>
+<br>
+<%= link_to "Sort by price, lowest to hightest", "/index?sort_by=price_high" %>
+<br>
+<%= link_to "Sort by price, highest to lowest", "/index?sort_by=price_low" %>
+<br>
+<%= link_to "Random Album", "/index?sort_by=random_album" %>
+<br>
+<%= link_to "Add Image", "/add_image" %>
 
-<% @albums.each do |album| %>
-  
-    <div class="row">
-      <div class ="col-md-2">
-        <div class="jumbotron jtron">
-        <div class ="container">  
+                <%= form_tag "/search", method: :post do %>
+                <div>
+                <%= label_tag :search %>
+                <%= text_field_tag :search %>
+                <div>
+                <%= submit_tag "Submit" %>
+                </div>
+                <% end %>
 
-          <%= link_to "#{album.title} #{album.artist} #{album.genre}", "/albums/#{album.id}" %>
+  <div class="row">
+    <% @albums.each do |album| %>
+      <div class ="col-sm-4 col-lg-4 col-md-4">
+        <div class="jumbotron jumbheight">
+          <div class ="container centered">  
+            <% if album.images.first %>
+            <%= image_tag album.images.first.image_url %>
+            <% end %>
+          <%= link_to "#{album.title}<br>#{album.artist}<br>#{album.genre}".html_safe, "/albums/#{album.id}" %>
 
         </div> <!--jumbotron-->
       </div> <!--column-->
-    </div> <!--row-->
+    
   </div> <!--container-->
    <% end %>
-</body>
+   </div> <!--row-->
+   </body>

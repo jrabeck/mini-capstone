@@ -7,6 +7,8 @@ get "/index", to: "albums#index"
 get "/albums/new", to: "albums#new"
 #create (message saying created)
 post "/albums", to: "albums#create"
+get '/add_image', to: "images#add_image"
+post '/save_new_image', to: "images#save_new_image"
 #show (show an indvidual album)
 get "/albums/:id", to: "albums#show"
 #destroy (message saying destroyed)
@@ -16,6 +18,7 @@ get '/albums/:id/edit', to: "albums#edit"
 #update (same as create except saying updated)
 patch '/albums/:id', to: "albums#update"
 
+post '/search', to: "albums#search"
 
 
 

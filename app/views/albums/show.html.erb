@@ -1,16 +1,28 @@
+<br>
+<br>
+<br>
+<br>
+<div class="jumbotron jtron centered">
+<% @album.images.each do |image| %>
+<%= image_tag image.image_url %>
+<% end %>
+  <h1><%= @album.title %></h1>
+  <h4><%= @album.artist %></h4>
+  <h4><%= @album.genre %></h4>
+  <h4><%= @album.description %></h4>
+  <h4>$<%= @album.price %> <h4>
+  <h4><%= @album.sale_message %> <h4>
+  <h4><%= @album.supplier.name %> </h4>
+  <h4>Price after tax: <%= number_to_currency(@album.total) %> <h4>
+    <div class="centered">
+      <%= link_to "Edit Album", "/albums/#{@album.id}/edit", class: "btn btn-primary" %> 
+    </div>
 
-<div class="jumbotron jtron">
-
-    <h1><%= @album.title %></h1>
-    <h4><%= @album.artist %></h4>
-    <h4><%= @album.genre %></h4>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    <div class="centered"> 
+      <%= link_to "Delete Album", "/albums/#{@album.id}/", method: :delete, class: "btn btn-primary" %>
+      <%= link_to "Add Image", "/add_image?album_id=#{@album.id}" %>
+    </div>
 </div>
 
-<div>
-<%= link_to "Edit Album", "/albums/#{@album.id}/edit" %>
-</div>
 
-<div> 
-<%= link_to "Delete Album", "/albums/#{@album.id}/", method: :delete %>
-</div>
+
