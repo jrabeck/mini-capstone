@@ -20,9 +20,22 @@
 
     <div class="centered"> 
       <%= link_to "Delete Album", "/albums/#{@album.id}/", method: :delete, class: "btn btn-primary" %>
-      <%= link_to "Add Image", "/add_image?album_id=#{@album.id}" %>
+      <%= link_to "Add Image", "/add_image?album_id=#{@album.id}", class: "btn btn-primary" %>
     </div>
-</div>
+
+    <div>
+      <%= form_tag '/checkout', method: :post do %>
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quantity %>
+      <%= hidden_field_tag :album_id, "#{@album.id}" %>
+      <%= hidden_field_tag :subtotal, @album.price %>
+      <%= hidden_field_tag :tax, @album.tax %>
+      <%= hidden_field_tag :total, @album.total %>
+      <%= submit_tag "Checkout!" %>
+      <% end %>
+    </div>
+
+
 
 
 

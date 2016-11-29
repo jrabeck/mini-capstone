@@ -31,7 +31,13 @@
        
       </form>
       <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
         <li><a href="/albums/new">Create New</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <% else %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+        <% end %>
         
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -39,6 +45,10 @@
   </head>
 
   <body>
+  <br>
+  <br>
+  <br>
+  <br>
       <div class="container">
       <% flash.each do |name, message| %> 
         <div class="alert alert-<%= name %> alert-dismissible" role="alert"> 

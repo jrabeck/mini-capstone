@@ -1,0 +1,10 @@
+<br>
+<br>
+<br>
+<br>
+<h3> Your subtotal is: <%= @order.subtotal %> </h3>
+<h3> Your tax is: <%= @order.tax %> </h3>
+<h3> Your total is: <%= @order.total %> </h3>
+<h3> Order placed by: <%= current_user.email %> </h3>
+<h3> Album ordered: <%= @album.title %> </h3>
+<%= image_tag(@album.images[0].image_url)%>
