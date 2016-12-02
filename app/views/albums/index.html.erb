@@ -17,6 +17,10 @@
   </div><!-- /.col-lg-6 -->
 <br>
 <br>
+ <% Category.all.each do |category| %>
+  <%= link_to "Category: #{category.name}", "/index?category=#{category.name}" %>
+  <% end %>
+  <br>
 <%= link_to "Sort by price, lowest to hightest", "/index?sort_by=price_high" %>
 <br>
 <%= link_to "Sort by price, highest to lowest", "/index?sort_by=price_low" %>

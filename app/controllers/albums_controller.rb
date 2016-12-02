@@ -13,21 +13,25 @@ class AlbumsController < ApplicationController
 
 
   def index
+
+
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @albums = category.albums
+    else 
+      @albums = Album.all
+    end
+
     search = params[:sort]
 
 
-    if current_user == nil
-    @albums = Album.where(user_id: 1)
-    else 
-    @albums = Album.where(user_id: current_user.id)
-    end 
 
     @images = Image.all
   	sort_by = params[:sort_by]
     if sort_by == "price_high"
-      @albums = @albums.order(price: :desc)
-    elsif sort_by == "price_low"
       @albums = @albums.order(price: :asc)
+    elsif sort_by == "price_low"
+      @albums = @albums.order(price: :desc)
     elsif sort_by == "discount" 
       @albums = @albums.where("price < ?", 30)
     elsif sort_by == "random_album"

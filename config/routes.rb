@@ -27,7 +27,12 @@ get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 get '/logout', to: 'sessions#destroy'
 
-get '/checkout/new', to: 'orders#new'
+post '/cart', to: 'carted_albums#create'
+
+get '/checkout', to: 'carted_albums#index'
 post '/checkout', to: 'orders#create'
+
+delete	'/orders/remove/:id', to: 'carted_albums#destroy' 
+
 
 end

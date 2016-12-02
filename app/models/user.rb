@@ -1,5 +1,5 @@
 class User < ApplicationRecord
 	has_secure_password
 	has_many :orders
-	has_many :albums
+	has_many :carted_albums
 end

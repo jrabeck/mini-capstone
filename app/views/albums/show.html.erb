@@ -24,14 +24,14 @@
     </div>
 
     <div>
-      <%= form_tag '/checkout', method: :post do %>
+      <%= form_tag '/cart', method: :post do %>
       <%= label_tag :quantity %>
       <%= text_field_tag :quantity %>
       <%= hidden_field_tag :album_id, "#{@album.id}" %>
       <%= hidden_field_tag :subtotal, @album.price %>
       <%= hidden_field_tag :tax, @album.tax %>
       <%= hidden_field_tag :total, @album.total %>
-      <%= submit_tag "Checkout!" %>
+      <%= submit_tag "Add to Cart!" %>
       <% end %>
     </div>
 

@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<br>
+
+<% current_user.carted_albums.where(status: "Carted").each do |carted_album| %>
+<h4> <%= carted_album.album.title %> (x <%= carted_album.quantity %>) </h4>
+<br>
+<% end %> 
+
+   <div class="centered">
+      <%= link_to "Buy (Final)", "/checkout", method: :post , class: "btn btn-primary" %> 
+    </div>
+    <br>
+       <div class="centered">
+      <%= link_to "Back to Shopping", "/index", class: "btn btn-primary" %> 
+    </div>
+
+

@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
 	belongs_to :user
-	belongs_to :album
-end
+	has_many :carted_albums
+	has_many :albums, through: :carted_albums
+	end

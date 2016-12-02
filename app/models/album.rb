@@ -1,7 +1,10 @@
 class Album < ApplicationRecord
 belongs_to :supplier
 has_many :images
-belongs_to :user
+has_many :categories, through: :album_categories
+has_many :album_categories
+has_many :order, through: :carted_albums
+
 
 	def sale_message
 		if price.to_i < 25

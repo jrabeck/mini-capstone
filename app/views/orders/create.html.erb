@@ -2,9 +2,19 @@
 <br>
 <br>
 <br>
-<h3> Your subtotal is: <%= @order.subtotal %> </h3>
+<h1> Order Confirmation! </h1>
+<h3> Your subtotal is: 
+		<%= @subtotal %>
 <h3> Your tax is: <%= @order.tax %> </h3>
 <h3> Your total is: <%= @order.total %> </h3>
 <h3> Order placed by: <%= current_user.email %> </h3>
-<h3> Album ordered: <%= @album.title %> </h3>
-<%= image_tag(@album.images[0].image_url)%>
+<h3> Albums ordered: </h3> 
+<br> 
+<div class="jtron centered">
+	<% @order.carted_albums.each do |carted_album| %>
+			 <h3> <%= carted_album.album.title%> (x <%= carted_album.quantity %>) </h3>
+			  <%= link_to "Remove", "/orders/remove/#{carted_album.id}", method: :delete %> 
+	     <%= image_tag(carted_album.album.images[0].image_url)%>
+	<% end %>
+</div>
+
